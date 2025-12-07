@@ -1,0 +1,23 @@
+{
+  "name": "flashforge-js",
+  "version": "1.0.0",
+  "description": "A HTTP API for the Flashforge Adventurer 5M (Pro)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "flashforge",
+    "adventurer",
+    "3dprinter",
+    "http"
+  ],
+  "author": "James McNee",
+  "license": "ISC"
+}
