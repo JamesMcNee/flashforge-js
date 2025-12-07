@@ -1,4 +1,7 @@
 import { Module } from "@nestjs/common";
+import { PrinterModule } from "src/modules/printer/printer.module";
 
-@Module({})
+@Module({
+  imports: [PrinterModule],
+})
 export class AppModule {}
