@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./build/test",
+    "rootDir": "./test",
+    "types": ["jest", "node"],
+    "paths": {
+      "src/*": ["src/*"],
+      "test/*": ["test/*"]
+    }
+  },
+  "include": ["test/**/*.ts", "test/**/*.tsx"],
+  "exclude": ["node_modules", "build", "dist"]
+}
