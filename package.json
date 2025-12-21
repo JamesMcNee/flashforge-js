@@ -4,6 +4,7 @@
   "description": "A NodeJS library for interacting with the Flashforge Adventurer 5M (Pro)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md",
     "package": "npm run build && npm pack ./dist",
