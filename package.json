@@ -1,6 +1,6 @@
 {
   "name": "flashforge-js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A NodeJS library for interacting with the Flashforge Adventurer 5M (Pro)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
