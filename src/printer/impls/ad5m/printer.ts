@@ -120,7 +120,6 @@ export class Adventurer5M implements FlashforgePrinter {
       let seenFirstOk = false
       let dataBuffer = ""
       socket.on("data", (data) => {
-        console.log("Received data chunk:\n", data.toString())
         if (!seenFirstOk) {
           const dataStr = data.toString()
           if (dataStr.includes("ok")) {
