@@ -32,7 +32,15 @@ export const printerProgressSchema = z.object({
 
 export type PrinterProgress = z.infer<typeof printerProgressSchema>
 
-export interface Printer {
+export type PrinterConstructorOptions =
+  | {
+      ip: string
+    }
+  | {
+      host: string
+    }
+
+export interface FlashforgePrinter {
   id: string
   getInfo(): Promise<PrinterInfo>
   getProgress(): Promise<PrinterProgress>

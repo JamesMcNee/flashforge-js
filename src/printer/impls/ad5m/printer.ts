@@ -1,27 +1,20 @@
 import { Socket } from "node:net"
 import {
-  Printer,
+  FlashforgePrinter,
+  PrinterConstructorOptions,
   PrinterInfo,
   PrinterProgress,
-} from "src/modules/printer/service/model/printer"
-import { PrinterResponseParser } from "src/modules/printer/repository/parser"
+} from "src/printer/flashforgePrinter"
+import { PrinterResponseParser } from "src/printer/impls/ad5m/parser"
 import { z } from "zod"
-import { ZodPrinterResponseParser } from "src/modules/printer/repository/parser/zod"
+import { ZodPrinterResponseParser } from "src/printer/impls/ad5m/parser/zod"
 import { RethrownError } from "src/util/rethrown-error"
 
 type PrinterCommand = `~M${number}` | `~M${number} ${string}`
 
-type PrinterConstructorOptions =
-  | {
-      ip: string
-    }
-  | {
-      host: string
-    }
-
 const controlMessage: PrinterCommand = "~M601 S1"
 
-export class DefaultPrinter implements Printer {
+export class Adventurer5M implements FlashforgePrinter {
   private static readonly API_PORT = 8899
 
   public readonly id: string
@@ -119,7 +112,7 @@ export class DefaultPrinter implements Printer {
     })
 
     return new Promise<T>((resolve, reject) => {
-      socket.connect(DefaultPrinter.API_PORT, this.ipOrHost, () => {
+      socket.connect(Adventurer5M.API_PORT, this.ipOrHost, () => {
         socket.write(`${controlMessage}\r\n`)
         socket.write(`${args.command}\r\n`)
       })

@@ -1,5 +1,5 @@
-import { PrinterResponseParser } from "src/modules/printer/repository/parser/index"
 import { ZodObject } from "zod"
+import { PrinterResponseParser } from "src/printer/impls/ad5m/parser/index"
 
 export class ZodPrinterResponseParser<
   T extends ZodObject,
